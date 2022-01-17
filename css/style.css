@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'KGSomebodyThatIUsedToKnow';
+    src: url('KGSomebodyThatIUsedToKnow.ttf') format('truetype');
+} 
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('Roboto-Regular.ttf') format('truetype');
+}
+
+body {
+	font-size : 13pt;
+	font-family: 'Roboto-Regular';
+	text-align: justify;
+
+	margin: 0;
+    padding: 0;
+    border: 0;
+
+	background-image: url('../img/intro.png');
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 130%;
+}
+
+h2 {
+	margin-top : 0px;
+	font-family: 'KGSomebodyThatIUsedToKnow';
+	font-weight : bold;
+}
+
+#status {
+	position : absolute;
+	top : 0px;
+	width : 100%;
+	text-align : center;
+}
+
+#status div {
+	display : inline-block;
+	padding : 10px 20px;
+	color : gray;
+	border-left : 1px solid lightGray;
+	border-right : 1px solid lightGray;
+	border-bottom : 1px solid lightGray;
+}
+#status div+div {
+	border-left : none;
+}
+
+.section {
+	padding : 10px;
+	margin : auto;
+	margin-top : 100px;
+	max-width : 600px;
+	border : 1px solid lightGray;
+}
+.section#intro {
+	display : block;
+}
+.section button {
+	display : block;
+	width : 100%;
+	color : black;
+	text-decoration : none;
+	padding : 5px;
+	margin-top : 30px;
+	background : #F5F5F5;
+	border : none;
+	cursor : pointer;
+}
+.section button+button  {
+	margin-top : 10px;
+}
+
+.section button:hover {
+	color : lightGray;
+	background-color : black;
+}
+
+.battle {
+	padding : 10px 10px;
+	margin : 20px 0px;
+	box-shadow : 0px 2px 8px gray;
+}
+
+strong {
+	font-weight: normal;
+}
+
+.letter {
+	font-family: 'KGSomebodyThatIUsedToKnow';
+	font-size: 28px;
+	font-weight: bold;
+}

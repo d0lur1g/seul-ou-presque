@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/zoo.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+		<meta lang="fr" xml:lang="fr" content="text/html;charset=UTF-8" http-equiv="Content-Type">
+		<title>Seul ou presque</title>
+		<link rel="shortcut icon" href="favicon.ico">
+	</head>
+		
+	<body>
+		<!-- Les différentes fonctionnalités se rajouteront dans cette div avec les fonctions javascript -->
+		<!-- Exemple : La santé, les jours passés, etc. -->
+		<div id="status">
+		</div>
+
+		<div class="section" id="intro" img="intro.png">
+			<h2>Seul ou presque...</h2>
+			<strong class="letter">V</strong>ous êtes vétérinaire pour le zoo animZo. Vous avez été missionné pour effectuer un transfert d'une centaine d'animaux vers un nouveau zoo. Seul inconvénient, vous devez traverser l'atlantique pour rejoindre l'Amérique du Nord. Une seule solution pour y arriver, voyager en bateau avec un équipage chevronné, une équipe de soigneurs et tous les animaux : Lions, tigres, éléphants, loups, ours, singes, pumas, rhinocéros, hippopotames, gnous, gazelles, zèbres et j'en passe...
+			<br><br>
+			Le jour du grand départ est arrivé !
+			
+			<action name="reset"/>
+			
+			<button go="beginning">Commencer la traversée de l'Atlantique !</button>
+		</div>
+		
+		<div class="section" id="beginning" img="beginning.png">
+			<strong class="letter">V</strong>ous avez passé une agréable journée, les animaux ne se sont pas plaints. Ils étaient même très silencieux comme bercés par les vagues.
+			A la fin de la journée vous vous rendez sur le pont du navire. Vous n'avez même pas eu le temps de vous relaxer un moment que le jour s'estompe faisant place à une fraîche nuit accompagnée d'un brouillard épais. Alors vous décidez de 
+			
+			<action name="start"/>
+			
+			<button go="lookAt">Regarder au loin</button>
+			<button go="cabin">Vous reposer dans votre cabine</button>
+		</div>
+
+		<div class="section" id="lookAt" img="lookAt.png">
+			<strong class="letter">V</strong>ous apercevez au loin quelque chose, mais avec ce brouillard vous ne distinguez pas correctement. Vous vous dirigez vers l'avant du bateau en gardant le regard fixé sur ce qui vous semble être une grosse masse sombre avec un point lumineux. Et soudain, vous comprenez que c'est un autre navire qui vient dans la direction de votre navire. Les feux de navigation deviennent de plus en plus visibles, et la collision est imminente.
+			
+			<button go="heartAttack">Vous vous tétanisez</button>
+			<button go="warning">Vous essayez de prévenir les autres</button>
+		</div>
+
+		<div class="section" id="cabin" img="cabin.png">
+			<strong class="letter">D</strong>urant votre sommeil, vous êtes éjectés de votre lit et réveillés en sursaut. Un grand bruit retenti et quelques secondes après, vous sentez que le bateau penche lentement comme s'il commençait à couler. Vous vous précipitez tant bien que mal hors de la cabine, et perdant l'équilibre à plusieurs reprises, vous réussissez à vous rendre sur le pont. 
+			<br><br>
+			D'un coup, vous vous stoppez net et comprenez que le navire est entré en collision avec un autre gros navire et qu'il est effectivement en train de sombrer. Peu de solutions s'offrent à vous à cet instant.
+			
+			<button go="dive">Plonger</button>
+			<button go="wait">Attendre</button>
+		</div>
+
+		<div class="section" id="heartAttack" img="heartAttack.png">
+			<strong class="letter">T</strong>out votre corps devient raide, votre coeur se met à battre de plus en plus vite jusqu'à ce qu'il s'arrête d'un coup. 
+			Personne ne se trouve à côté de vous et ne peut vous réanimer.
+
+			<action name="bigLoseLife"/>
+
+			<button go="heartAttackGo">Continuer</button>
+		</div>
+
+		<div class="section" id="heartAttackGo">
+			<action name="suddenDeath"/>
+		</div>
+		
+		<div class="section" id="warning" img="warning.png">
+			<strong class="letter">V</strong>ous faîtes des signes avec vos bras aux navires en train de vous foncer dedans, mais rien n'y fait. Il ne vous voit pas.
+			Vous courez à la timonerie pour prévenir le Lieutenant de navigation, qui aurait dû se rendre compte avec leur sonar, de ce choc si prévisible.
+			Pas le temps d'aller jusque-là, il est trop tard et les deux navires entrent en collision.
+			<br><br>
+			Et le bateau commence à couler.
+		
+			<button go="dive">Plonger</button>
+			<button go="wait">Attendre</button>
+		</div>
+
+		<div class="section" id="wait" img="wait.png">
+			<strong class="letter">V</strong>ous êtes tétanisés, votre corps refuse de bouger, tandis que votre esprit cherche une éventuelle solution pour venir en aide aux animaux et vous en sortir par la même occasion.
+			Mais il est trop tard, le bateau sombre. Vous êtes projeté, et votre tête heurte le sol, vous perdez connaissance.
+			<br><br>
+			Une dernière chose reste à faire, et c'est la dernière.
+
+			<action name="bigLoseLife"/>
+
+			<button go="sink">Se laisser emporter par le fond</button>
+		</div>
+
+		<div class="section" id="sink">
+			<action name="suddenDeath"/>
+		</div>
+
+		<div class="section" id="dive" img="dive.png">
+			<strong class="letter">V</strong>ous avez fait le bon choix, plonger vous a évité d'être emporté vers le fond. Mais vous vous retrouvez maintenant face à une étendue d'eau. Autour de vous, des cadavres d'animaux surgissent. Des bouts de la carlingue des deux navires vous entourent, et soudain un corps remonte à la surface. Vous vous en approchez et vous vous tétanisez à l'idée de voir le capitaine mort proche de vous. 
+			<br><br>
+			L'eau vous semble de plus en plus froide, en quelques minutes vous êtes transi de froid; vos membres semblent ne plus pouvoir bouger, mais vous avez envie de vous en sortir alors vous prenez votre courage à deux mains et vous
+
+			<button go="swim">Nagez, nagez et nagez encore pour vous éloigner au maximum</button>
+			<button go="crashBoat">Nagez vers une petite embarcation</button>
+		</div>
+
+		<div class="section" id="swim" img="swim.png">
+			<strong class="letter">A</strong>près avoir nagé plusieurs minutes, vos membres sont figés par l'eau glaciale et par l'effort que vous avez donné pour vous éloigner des décombres. Pourtant seul au milieu de l'immensité de la mer, vous sentez une présence, comme si vous étiez observé. Soudain, l'aileron d'un requin passe à quelques centimètres de vous. Un requin au milieu de ces eaux froides est pour le moins étrange. Il rôde autour de vous, et semble vous appréciez...
+
+			<action name="hit"/>
+
+			<button go="shark">Faire connaissance</button>
+		</div>
+
+		<div class="section" id="shark" img="shark.png">
+			<strong class="letter">L'</strong>eau autour de vous devient rouge, en effet le requin vous apprécie tellement qu'il a commencé à vous croquer la jambe, mais vous ne sentez rien. Comme si votre corps s'était mis en pause : peut-être est-ce dû à l'eau glaciale, ou au choc intense du naufrage, ou bien encore dû à cette situation invraisemblable. Le bateau a coulé, vous êtes le seul survivant au milieu de l'eau avec un requin! Où est-ce votre système nerveux qui s'est mis en pause un certain temps à cause de la panique. Toujours est-il que le requin adore l'odeur de votre sang et il revient soudain vers vous et vous entraîne avec lui...
+
+			<action name="bigLoseLife"/>
+
+			<button go="fight">Vous vous débattez</button>
+			<button go="eat">Vous vous laissez faire</button>
+		</div>
+
+		<div class="section" id="fight" img="fight.png">
+			<strong class="letter">E</strong>n vous débattant, vous perdez la seconde jambe, il est difficile pour vous de rester hors de l'eau.
+
+			<action name="bigLoseLife"/>
+
+			<button go="eat">Vous vous laissez faire</button>
+		</div>
+
+		<div class="section" id="eat">
+			<action name="suddenDeath"/>
+		</div>
+		
+		<div class="section" id="crashBoat" img="crashBoat.png">
+			<strong class="letter">C</strong>ette petite embarcation de secours est la seule autour de vous à être encore hors de l'eau et dans le bon sens. En vous approchant, vous vous rendez compte que quelque chose bouge à l'intérieur. Vous ne distinguez pas correctement, par contre vous entendez un bruit étrange, comme un grognement. Vous ne savez pas si vous devez être rassuré car ce bruit ne semble pas être un grognement humain, ou alors il est très mal en point.
+
+			<button go="board">Monter dans l'embarcation de fortune</button>
+		</div>
+
+		<div class="section" id="board" img="board.png">
+			<strong class="letter">V</strong>ous vous hissez dans l'embarcation et vous vous retrouvez nez-à-nez avec un animal pour le moins dangereux. Cet animal émet des sons non menaçant, plutôt d'inquiétude, il paraît effrayé. Il se rapproche de vous, et vous êtes stupéfait de voir cet ours face à vous. Vous le reconnaissez pourtant, mais la situation étant délicate, vous ne savez pas comment l'ours va régir et comment vous devez réagir également.
+
+			<button go="stay">Rester à bord</button>
+			<button go="jump">Sauter et trouver une autre solution</button>
+			<button go="kill">Tuer la bête</button>
+		</div>
+
+		<div class="section" id="kill" img="kill.png">
+			<strong class="letter">V</strong>ous aimez les animaux, il n'y a aucun doute. Mais vous les connaissez aussi parfaitement et cohabiter avec un ours sur cette embarcation est tout bonnement impossible. Vous tournez la tête et proche d'un bord du bateau, vous apercevez une trousse de secours dans laquelle se trouve un ciseau. Mais l'ours vient vers vous et vous colle une torgniole. Vous vous retrouvez au sol à côté de la trousse de secours. Vous vous emparez du ciseau et vous
+
+			<action name="bigLoseLife"/>
+
+			<button go="killBear">Commencez le combat contre la bête</button>
+		</div>
+
+		<div class="section" id="killBear">
+			<action name="suddenDeath"/>
+		</div>
+
+		<div class="section" id="jump" img="jump.png">
+			<strong class="letter">D</strong>e peur d'affronter l'ours et d'y rester, vous revoilà dans l'eau. Vous n'apercevez rien à l'horizon. Vous vous laissez aller au gré des vagues et du courant. Vous restez des jours sans nourriture et sans boire. Vous ne sentez plus vos membres, ni même le battement de votre cœur, vous sentez que vous commencez à partir et une lumière blanche apparaît soudainement.
+
+			<action name="bigLoseLife"/>
+
+			<action name="day"/>
+
+			<button go="sky">Regarder le ciel</button>
+		</div>
+
+		<div class="section" id="sky">
+			<action name="suddenDeath"/>
+		</div>
+
+		<div class="section" id="stay" img="stay.png">
+			<strong class="letter">V</strong>ous avez peur d'affronter l'ours, mais sauter n'est pas non plus une excellente idée. Alors vous allez pour faire face à votre peur, prendre votre courage à deux mains et vous allez cohabitez avec cette incommensurable bête.
+
+			<button go="newWay">Débutez cette nouvelle aventure</button>
+		</div>
+
+		<div class="section" id="newWay" img="newWay.png">
+			<strong class="letter">V</strong>ous sentez que l'ours ne va pas s'attaquer à vous. Il est lui-même soucieux de son sort. Vous tenant l'un en face de l'autre et voyant l'ours tournant sur lui-même se demandant où il se trouve. Vous décidez de regarder autour de vous et vous y découvrez plusieurs choses utiles, une trousse de secours, un couteau, de la ficelle, 3 boîtes de conserve et 5 bouteilles d'eau. Avec un bon rationnement, vous pouvez rester en vie, vous et l'ours environ 7 jours.
+
+			<action name="inventory"/>
+
+			<button go="awaken">Rester éveiller</button>
+			<button go="sleep">Vous endormir</button>
+		</div>
+
+		<div class="section" id="awaken" img="awaken.png">
+			<strong class="letter">V</strong>ous luttez pour ne pas vous endormir mais vous ne réussissez pas, vos paupières se ferment.
+
+			<button go="sleep">Vous endormir</button>
+		</div>
+
+		<div class="section" id="sleep" img="sleep.png">
+			<strong class="letter">A</strong>près avoir sommeillé durant quelques heures, le lever du soleil vous fait ouvrir les yeux. Et vous regardez où vous êtes et surtout où est l'ours. Heureusement il dort, l'eau est calme et l'embarcation suit un rythme de croisière lent mais régulier.
+			<br><br>
+			Vers le milieu de la journée, vous sortez une boite de conserve et la partagez en deux. Vous déversez la moitié proche de l'ours mais en restant à l'écart. Vous commencez à manger votre part rapidement. L'ours se réveille certainement dû à l'odeur de la nourriture, la renifle et n'en fait qu'une bouchée. Vous ouvrez une bouteille d'eau, en buvez un peu et en faîtes profiter votre hôte comme vous le pouvez.
+			Vous savez que ce n'est pas suffisant pour l'ours et qu'il risque de vite se retourner contre vous quand la faim bondira en lui.
+			<br><br>
+			Une idée vous vient, vous prenez la ficelle et vous élaborez un plan pour fixer de la nourriture au bout. Cette fabrication va servir à pêcher, d'une drôle de façon mais l'espoir vous redonne confiance. Bien sûr aucun hameçon n'est présent, donc la seule façon d'y arriver est de faire venir le poisson en surface.
+
+			<action name="dayAndNewInventory"/>
+			
+			<button go="goFishingFirst">Commencer à pêcher</button>
+		</div>
+
+		<div class="section" id="goFishingFirst" img="goFishingFirst.png">
+			<strong class="letter">D</strong>urant la journée, rien ne se produit, aucune touche, aucun poisson, ni à l'horizon, ni autour de l'appât. La nuit arrive le moral redescend de nouveau. L'ours semble calme, le jour disparaît peu à peu, l'horizon sombre petit à petit dans le noir, la nuit est là. L'animal ne bouge pas et vous basculez doucement dans vos rêves.
+			<br><br>
+			Une nouvelle journée commence, la lumière du jour vous réveille. Un vent froid accompagné de pluie vous fait frissonner. L'ours ne bouge pas, il respire lentement. Vous vous sentez faible mais vous ne devez pas rester inactif, la journée va être encore longue et tumultueuse, il faut garder espoir. Votre estomac se réveille aussi, vous avez faim.
+
+			<action name="day"/>
+			
+			<button go="goFishingSecond">Commencer à pêcher</button>
+			<button go="openBox">Ouvrir une boîte de conserve et boire de l'eau</button>
+		</div>
+
+		<div class="section" id="openBox" img="openBox.png">
+			<strong class="letter">E</strong>st-ce l'odeur ou le bruit? Toujours est-il que l'ours est sorti de son sommeil et complètement paniqué, il bouge partout faisant de grands gestes et vous frôlant avec ces griffes à plusieurs reprises. Il n'est pas agressif mais il a peur. Vous essayez de l'apaiser en lui parlant, mais rien y fait, l'embarcation tangue dangereusement. 
+			<br><br>
+			Les vivres, l'eau, la trousse de secours, tout ce qui reste de votre survie à l'intérieur est chamboulé, rebondissant contre les rebords quand soudain quelque chose tombe à l'eau. Il faut que vous réagissiez et vite. Vous hurlez aussi fort que l'ours, en vous approchant de lui. L'ours se fige en vous regardant, et se calme aussi vite que lorsqu'il s'est mis à paniquer.
+
+			<action name="newInventory"/>
+
+			<button go="doInventory">Rassembler les choses et faire l'inventaire</button>
+		</div>
+
+		<div class="section" id="doInventory" img="doInventory.png">
+			<strong class="letter">A</strong>près avoir rassemblé le peu d'affaires présentes à l'origine, vous vous apercevez que l'inventaire n'est pas complet.
+			Il ne reste plus de boîte de conserve, seulement 2 bouteilles d'eau et le kit de secours est toujours présent.
+			<br><br>
+			Vous êtes effrayés à l'idée de ne plus avoir d'eau et avez peur de manquer rapidement de nourriture.
+
+			<action name="newInventory"/>
+
+			<button go="goFishingSecond">Commencer à pêcher</button>
+		</div>
+
+		<div class="section" id="goFishingSecond" img="goFishingSecond.png">
+			<strong class="letter">A</strong>près quelques heures avec l'appât de la veille toujours au bout du fil, rien ne se passe. Quand soudain surgit pas un, pas deux mais trois poissons autour de l'appât. Vous vous empressez de ramener délicatement le bout de la ficelle au plus proche de la coque du bateau. Les poissons ne sont pas si petits que ça, en moyenne cinquante centimètres chacun, ils frétillent à la surface faisant suffisamment de bruit pour interpeller l'ours.
+			<br><br>
+			Depuis le début de cette fabrication artisanale, vous saviez que la seule façon de réussir à pêcher était de travailler en équipe. Vous appâtez le poisson, vous le rapprochez au maximum et vous laissez faire l'instinct animal de l'ours. L'ours, ni une ni deux attrape dans sa gueule un poisson, un autre plonge vers le fond et l'autre, certainement de peur, saute pour esquiver l'attaque de l'ours et se retrouve à bord de l'embarcation. Un poisson pas très malin mais qui fait votre affaire. Chacun sa bouffe accompagnée d'une bouteille d'eau.
+
+			<action name="addFish"/>
+
+			<button go="eatFish">Manger</button>
+			<button go="goFishingthird">Re-commencer à pêcher</button>
+		</div>
+
+		<div class="section" id="eatFish" img="eatFish.png">
+			<strong class="letter">V</strong>ous mangez et buvez et vous vous reposez.
+
+			<action name="eatAndDrink"/>
+
+			<button go="goFishingthird">Re-commencer à pêcher</button>
+		</div>
+
+		<div class="section" id="goFishingthird" img="goFishingthird.png">
+			<strong class="letter">V</strong>ous laissez la fin de la journée et une nuit s'écouler, et vous décidez de réitérer l'expérience. Cette fois, vous coupez la ficelle en deux et vous doublez votre technique y mettant une partie du contenu d'une boite de conserve à chacune des extrémités.
+			<br><br>
+			Au bout de quelques minutes, une première touche se fait sentir, puis plus rien. Vous tentez le tout pour le tout, et vous sacrifiez le reste du contenu de la boîte de conserve pour appâter davantage et faire revenir le poisson. Aussi bizarre que ça puisse paraître, un banc de poissons s'approche de l'embarcation et se rue sur le nuage de nourriture qu'a procurée la boîte de conserve. Ça commence à sauter de partout. L'ours est comme un fou et arrive même à en chopper un encore une fois dans sa gueule. Beaucoup sautent si proche du bateau que certains atterrissent directement dans le bateau. Ça vous remplit de bonheur, de savoir que vous ne manquerez plus de nourriture pendant quelques jours. Un seul problème subsiste maintenant, c'est l'eau potable qui commence à se faire rare. Il reste seulement 3 bouteilles d'eau.
+
+			<action name="dayAndNewFish"/>
+
+			<button go="continue">Continuer à naviguer</button>
+		</div>
+
+		<div class="section" id="continue" img="continue.png">
+			<strong class="letter">T</strong>rois jours se sont écoulés depuis le miracle des poissons. Plus qu'une seule bouteille d'eau à bord et le moral est proche de zéro. Mais d'un seul coup, vous vous levez, et vous vous précipitez vers le bord de l'embarcation la faisant remuer elle et l'ours.
+
+			<action name="day"/>
+
+			<button go="isle">Vous regardez au loin</button>
+		</div>
+
+		<div class="section" id="isle" img="isle.png">
+			<strong class="letter">V</strong>ous ne rêvez pas, ce que vous voyez est bien une île révélant une plage de sable fin et une vaste forêt. Certes, vous êtes affaibli et vous la voyez de loin, mais elle n'a pas l'air d'être très grande. Vous évaluez qu'il vous faut au minimum une journée pour vous y rendre si les courants restent ainsi. Cette île est peut être votre nouvelle lueur d'espoir, et vous décidez de
+
+			<button go="nonStop">Continuer sans s'arrêter</button>
+			<button go="diveAndGoIsle">Plonger et regagner seul l'île</button>
+			<button go="berth">Vous échouer sur l'île avec l'ours</button>
+		</div>
+
+		<div class="section" id="nonStop" img="nonStop.png">
+			<strong class="letter">V</strong>ous avez imaginé que sur cette île, vous n'y trouverez rien et que seul le temps y sera plus long avant une mort lente. Des jours sont passés, vous vous sentez faibles, vous avez faim et surtout très soif mais plus rien ne se trouve à bord. L'ours est également dans un état de manque, il dort mais plus pour longtemps.
+
+			<action name="dayAndBigLoseLife"/>
+			
+			<button go="dead">Continuer</button>
+		</div>
+
+		<div class="section" id="dead">
+			<action name="death"/>
+		</div>
+
+		<div class="section" id="diveAndGoIsle" img="diveAndGoIsle.png">
+			<strong class="letter">V</strong>ous avez décidé de regagner l'île sans savoir ce qui vous y attend. L'espoir vous a fait venir jusqu'ici. Mais vous ne savez pas ce sur quoi vous allez tomber sur cette île pour le moins hostile. Vous décidez d'explorer les environs. Vous vous enfoncez peu à peu dans les bois pour faire une première reconnaissance. Et là, subitement, vous tombez sur un ours qui se montre pour le moins agressif et hostile. Vous vous demandez instinctivement, "Mais que fait un ours ici, comment est-il arrivé?"
+			<br><br>
+			Quoi qu'il en soit, à peine le temps d'avoir pensé à ça, vous vous prenez un coup de patte magistral et vous tombez à terre.
+
+			<action name="bigLoseLife"/>
+
+			<button go="dead">Continuer</button>
+		</div>
+
+		<div class="section" id="dead">
+			<action name="death"/>
+		</div>
+
+		<div class="section" id="berth" img="berth.png">
+			<strong class="letter">L</strong>e lendemain, vous accostez tous les deux sur l'île et vous vous empressez de sortir de l'embarcation. Vous vous enfoncez séparément mais vous le gardez à portée de vue dans cette sombre forêt quand tout à coup, un ours mal en point se présente devant vous, émettant des grognements agressifs. Il est encore loin mais commence à courir en se rapprochant de vous. Vous détalez à toute vitesse vers votre co-équipier, l'autre ours, dans l'espoir qu'il prenne votre défense. Les deux ours se confrontent, ça gronde et le sang jaillit. Heureusement l'ours de cette île est très maigre, comme s'il avait peu mangé durant ces derniers temps. Il semble faible face à l'autre ours, c'est une aubaine car celui-ci montre désormais sa domination. Après cet instant de folie, les ours commencent à se tourner autour comme s'ils cherchaient quelque chose sur l'un et l'autre. On dirait qu'ils se connaissent. Pour vous, c'est impossible, et pourtant que fait un ours sur cette île? Comment y est-il arrivé? L'évidence est bien réelle. Vous connaissez cet ours, sa tâche noire sur le coin de l'oreille gauche... il est naît dans le zoo animZo, vous en êtes sûr. C'est aussi un rescapé de ce jour noir où le bateau a sombré.
+			<br><br>
+			Des jours, des semaines, des mois passent...
+
+			<action name="day"/>
+
+			<button go="time">Faire défiler le temps</button>
+		</div>
+		
+		<div class="section" id="time" img="time.png">
+			<strong class="letter">V</strong>ous vivez le reste de votre vie sur cette petite île. Les deux ours meurent de vieillesse avant vous. Vous faîtes le bilan et au bout du compte c'est un voyage et une aventure comme peu d'hommes en connaissent que vous avez vécu et qui a finalement valu le coup !
+
+			<action name="dayAndExit"/>
+
+			<button go="intro">Fin</button>
+		</div>		
+		
+		<div class="section" id="death" img="death.png">
+			<strong class="letter">L</strong>e voyage s'arrête ici, vous êtes mort !
+			<button go="intro">Fin</button>
+		</div>
+
+		<div class="section" id="suddenDeath" img"death.png">
+			<strong class="letter">L</strong>e voyage s'arrête ici, votre traversée aura été de courte durée!
+			<button go="intro">Fin</button>
+		</div>
+		
+	</body>
+
+</html>
